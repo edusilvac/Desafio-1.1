@@ -31,6 +31,13 @@ function obterDadosCliente() {
           return;
         }
 
+        // Converter a data de nascimento para o formato Date
+        const partesData = dataNascimento.split('/');
+        const dia = parseInt(partesData[0]);
+        const mes = parseInt(partesData[1]) - 1; // O mês começa do zero (janeiro = 0)
+        const ano = parseInt(partesData[2]);
+        const dataNascimentoCliente = new Date(ano, mes, dia);
+
         rl.question('Digite a renda mensal do cliente: ', (renda) => {
           const rendaNum = parseFloat(renda.replace(',', '.'));
           if (isNaN(rendaNum) || rendaNum < 0) {
@@ -55,7 +62,7 @@ function obterDadosCliente() {
               }
 
               // Dados corretos
-              imprimirDadosCliente(nome, cpf, dataNascimento, rendaNum, estadoCivil, dependentesNum);
+              imprimirDadosCliente(nome, cpf, dataNascimentoCliente, rendaNum, estadoCivil, dependentesNum);
               rl.close();
             });
           });
@@ -78,7 +85,7 @@ function validarDataNascimento(dataNascimento) {
   const dia = parseInt(partesData[0]);
   const mes = parseInt(partesData[1]) - 1; // O mês começa do zero (janeiro = 0)
   const ano = parseInt(partesData[2]);
-  
+
   const dataNascimentoCliente = new Date(ano, mes, dia);
   const dataAtual = new Date();
   const idadeMinima = 18;
@@ -112,7 +119,7 @@ function validarEstadoCivil(estadoCivil) {
 
 function imprimirDadosCliente(nome, cpf, dataNascimento, renda, estadoCivil, dependentes) {
   const cpfFormatado = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-  const dataNascimentoFormatada = `${dataNascimento.getDate().toString().padStart(2, '0')}/${(dataNascimento.getMonth() + 1).toString().padStart(2, '0')}/${dataNascimento.getFullYear()}`;
+  const dataNascimentoFormatada = `${dataNascimento.getDate()}/${dataNascimento.getMonth() + 1}/${dataNascimento.getFullYear()}`;
   const rendaFormatada = renda.toFixed(2).replace('.', ',');
 
   console.log('\nDados do cliente:');
