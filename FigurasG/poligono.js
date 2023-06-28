@@ -10,6 +10,7 @@ export default class Poligono{
         this.vertices = vertices;
     }
 
+//Adicionar um novo Vértice ao Polígono
     addVertice(v){
         if (this.vertices.includes(v)){
             return false;
@@ -18,10 +19,12 @@ export default class Poligono{
         return true;
     }
 
+//Quantidade de Vértices
     get qtdVertices(){
         return this.vertices.length;
     }
 
+//Perímetro
     get perimetro(){
         let perimetro = 0;
         for (let i = 0; i < this.vertices.length; i++){

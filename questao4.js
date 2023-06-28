@@ -43,7 +43,7 @@ class Turma {
     }
   }
   
-
+//Recomer Aluno
     removerAluno(matricula){
         const index = this.alunos.findIndex(aluno => aluno.matricula === matricula);
         if (index !== -1){
@@ -53,6 +53,7 @@ class Turma {
         }
     }
 
+//Lançar Nota
     lancarNota(matricula, prova, nota){
         const aluno = this.alunos.find(a => a.matricula === matricula);
         if (aluno){
@@ -68,6 +69,7 @@ class Turma {
         }
     }
 
+//Imprimir Alunos
     imprimirAlunos() {
         console.log('---------------------------------------');
         console.log('Matricula Nome P1 P2 NF');
@@ -87,6 +89,7 @@ class Turma {
 
 const turma = new Turma();
 
+//Tabela de Alunos
 const aluno1 = new Aluno('12345', 'Ana de Almeida');
 aluno1.notaP1 = 8.0;
 aluno1.notaP2 = 9.5;

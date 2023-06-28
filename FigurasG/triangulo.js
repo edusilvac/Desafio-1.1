@@ -36,6 +36,7 @@ export default class Triangulo{
         return true;
     }
 
+//Perimetro dos Vértices
     get perimetro(){
         const [v1, v2, v3] = this.vertices;
         const lado1 = this.calcularDistancia(v1, v2);
@@ -44,12 +45,14 @@ export default class Triangulo{
         return lado1 + lado2 + lado3; 
     }
 
+//Calcular distância euclidiana de um vértice ao outro.
     calcularDistancia(v1, v2){
         const dx = v2.x - v1.x;
         const dy = v2.y - v1.y;
         return Math.sqrt(dx * dx + dy * dy);
     }
 
+//Tipo de Triângulos: Equilátero, Isósceles e Escaleno.
     get tipo(){
         const [v1, v2, v3] = this.vertices;
         const lado1 = this.calcularDistancia(v1, v2);
@@ -65,6 +68,7 @@ export default class Triangulo{
         }
     }
 
+//Clonar um Triangulo
     clone(){
         const [v1, v2, v3] = this.vertices;
         const cloneV1 = new Vertice (v1.x, v1.y);
@@ -73,6 +77,7 @@ export default class Triangulo{
             return new Triangulo (cloneV1, cloneV2, cloneV3);
     }
 
+//Area para Retornar a Área do Triângulo
     get area(){
         const [v1, v2, v3] = this.vertices;
         const lado1 = this.calcularDistancia(v1, v2);

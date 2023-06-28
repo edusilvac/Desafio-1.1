@@ -9,6 +9,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+//Dados dos Clientes
 function obterDadosCliente() {
   rl.question('Digite o nome do cliente: ', (nome) => {
     if (nome.length < 5) {
@@ -117,6 +118,7 @@ function validarEstadoCivil(estadoCivil) {
   return estadosCivisValidos.includes(estadoCivil.toUpperCase());
 }
 
+//Tabela
 function imprimirDadosCliente(nome, cpf, dataNascimento, renda, estadoCivil, dependentes) {
   const cpfFormatado = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
   const dataNascimentoFormatada = `${dataNascimento.getDate()}/${dataNascimento.getMonth() + 1}/${dataNascimento.getFullYear()}`;
