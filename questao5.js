@@ -1,3 +1,6 @@
+//Módulos PromptSync
+import PromptSync from 'prompt-sync';
+
 const prompt = require('prompt-sync')({ sigint: true }); // Permite terminar o programa com CTRL-C
 
 //let nome = prompt('Eduardo Carvalho');
