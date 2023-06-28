@@ -1,7 +1,14 @@
-const prompt = require('prompt-sync')({ sigint: true }); // Permite terminar o programa com CTRL-C
+//Importar CLasses
+import Vertice from './FigurasG/vertice.js';
+
+//Importar PromptSync
+import PromptSync from 'prompt-sync';
+
+const prompt = PromptSync({ sigint: true }); // Permite terminar o programa com CTRL-C
 
 //let nome = prompt('Eduardo Carvalho');
 
+/*
 class Vertice {
     constructor (x, y){
         this.verticex = x;
@@ -31,7 +38,7 @@ class Vertice {
         return this.verticex === verificaVerti.x && this.verticey === verificaVerti.y;
     }
 }
-
+*/
 // Leitura dos valores do usuário
 const x1 = parseFloat(prompt('Digite a coordenada x do Vértice 1:'));
 const y1 = parseFloat(prompt('Digite a coordenada y do Vértice 1:'));

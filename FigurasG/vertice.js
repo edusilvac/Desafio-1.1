@@ -1,4 +1,4 @@
-export default class vertice{
+export default class Vertice{
     constructor (x, y){
         this.verticex = x;
         this.verticey = y;
